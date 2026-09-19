@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "charts.fullname" . }}-config
+  labels:
+    {{- include "charts.labels" . | nindent 4 }}
+data:
+  APP_NAME: {{ .Values.config.appName | quote }}
+  VERSION: {{ .Values.config.version | quote }}
